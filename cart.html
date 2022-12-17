@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart Page</title>
+    <style>
+      
+      .nav{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+        height: 90px;
+        font-size: 24px;
+
+      }
+      #cart-container{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        width: 90%;
+        grid-auto-rows: 480px;
+        margin: auto;
+        text-align: center;
+        gap: 20px;
+      }
+      img{
+        width: 100%;
+        height: 300px;
+      }
+      #cart-container>div{
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      }
+      .nav>div{
+        background-color: rgb(48, 142, 173);
+        width: 120px;
+        height: 40px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+      }
+      .nav>div a{
+        color: white;
+        text-decoration: none;
+      }
+      #total{
+        text-align: center;
+      }
+      #top{
+        display: flex;
+        justify-content: space-between;
+      }
+      #buy{
+        background-color: rgb(48, 142, 173);
+        width: 150px;
+        height: 40px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        border: none;
+        font-size: 24px;
+        margin-top: 20px;
+
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+     
+     <div> <a href="./home.html">Home</a></div>
+     <h1>Add To Cart</h1>
+     <div> <a href="./cart.html">Cart</a></div>
+    </div>
+    <div id="top">
+      <h1>Total products :- <span id="item">0</span></h1>
+      <h1 id="total">Your Total cart Price is:- <span id="cart-total">0</span></h1>
+      <button id="buy">Buy Now</button>
+    </div>
+    
+    <div id="cart-container">
+      <!-- Here Append All the cart Products  -->
+    </div>
+  </body>
+  <script>
+    // Write all necessery JS here
+    let container=document.getElementById("cart-container")
+    let cardata=JSON.parse(localStorage.getItem("cart"))||[]
+    let lsdata=JSON.parse(localStorage.getItem("unknown"))||[]
+    let price1=document.getElementById("cart-total");
+    
+    function shopdata(data){
+      container.innerHTML=null
+      data.forEach((element,index)=>{
+        let card=document.createElement("div");
+        let img=document.createElement("img");
+        img.setAttribute("src",element.img);
+        let brand=document.createElement("h2");
+        brand.innerText=element.brand;
+       
+        let price=document.createElement("p")
+        price.innerText="$"+" "+element.price;
+       
+        
+        let increment=document.createElement("button")
+        increment.innerText="+";
+        let quantity=document.createElement("span")
+        quantity.innerText=element.quantity
+        let decrement=document.createElement("button")
+        decrement.innerText="-"
+        increment.addEventListener("click",()=>{
+          
+          quantity.innerText++
+          element.quantity++;
+          cardata[index] = element;
+          localStorage.setItem("cart",JSON.stringify(cardata));
+          shopdata(cardata);
+
+        });
+        decrement.addEventListener("click",()=>{
+        if(element.quantity > 1){
+            quantity.innerText--
+            element.quantity--;
+            cardata[index] = element;
+            localStorage.setItem("cart",JSON.stringify(cardata));
+            shopdata(cardata)
+        }
+        })
+       
+        let remove=document.createElement("button")
+        remove.innerText="Remove"
+       remove.addEventListener("click",()=>{
+        lsdata.push(element);
+        localStorage.setItem("unknown",JSON.stringify(lsdata));
+        cardata.splice(index,1);
+        localStorage.setItem("cart",JSON.stringify(cardata));
+        shopdata(cardata)
+       })
+
+
+        let total=0;
+        cardata.forEach((element,index)=>{
+          
+          total+=element.price*element.quantity
+          price1.innerText=total
+        })
+        
+        
+
+
+       
+        card.append(img,brand,price,increment,quantity,decrement,remove);
+        container.append(card)
+
+
+      })
+    }
+    shopdata(cardata)
+    let to=document.getElementById("item")
+    to.innerText=cardata.length;
+    document.getElementById("buy").addEventListener("click",()=>{
+      alert("Delivery with in 7 days")
+      window.location.pathname="home.html"
+      localStorage.removeItem("cart")
+    })
+
+
+
+  </script>
+</html>

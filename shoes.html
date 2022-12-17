@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         body{
+            background-color: azure;
+
+        }
+        #cloth-container{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-auto-rows: 450px;
+            gap: 20px;
+            width: 90%;
+            margin: auto;
+            margin-top: 20px;
+
+        }
+        #cloth-container img{
+            width: 100%;
+            height: 250px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+        #cloth-container>div{
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            border-radius: 15px;
+
+        }
+        #cloth-container>div>button{
+            display: block;
+            margin: auto;
+            width: 180px;
+            height: 30px;
+            border-radius: 50px;
+            background-color: rgb(24, 188, 200);
+            color: white;
+            font-size: 20px;
+            border: none;
+        }
+        #cloth-container>div>h2,#cloth-container>div>p{
+            margin-left: 20px;
+
+        }
+        #filter{
+            display: block;
+            margin: auto;
+            width: 200px;
+            border-radius: 50px;
+            height: 30px;
+            padding: 10;
+        }
+        body{
+            text-align: center;
+        }
+        .nav>div{
+        background-color: rgb(48, 142, 173);
+        width: 120px;
+        height: 40px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+      }
+      .nav>div a{
+        color: white;
+        text-decoration: none;
+      }
+      .nav{
+        display: flex;
+        width: 80%;
+        justify-content: space-between;
+        margin: auto;
+      }
+      .nav>div{
+        margin-top: 22px;
+      }
+     
+    </style>
+</head>
+<body>
+    <div class="nav">
+     
+        <div> <a href="./home.html">Home</a></div>
+        <h1>Shoes Branding</h1>
+        <div> <a href="./cart.html">Cart</a></div>
+       </div>
+    <select id="filter">
+        <option value="">Filter By Category</option>
+        <option value="Men">Men</option>
+        <option value="Women">Women</option>
+        <option value="Kids">Kids</option>
+      </select>
+   <div id="cloth-container"></div>
+
+    
+</body>
+<script>
+    let container=document.getElementById("cloth-container")
+    let filterSelect=document.getElementById("filter")
+
+    
+
+filterSelect.addEventListener("change",function (){
+    let filteredData=cloth.filter((element)=>{
+        if(element.category==filterSelect.value){
+            return true
+        }else{
+            return false
+        }
+    })
+    shopdata(filteredData)
+})
+ let cloth=[
+ {
+            id:1,
+            brand:"zara",
+            img:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/61pYhDY8fxL._AC_UL320_.jpg",
+            price:"2999",
+            category:"Men"
+        },
+        {
+            id:2,
+            brand:"Roadstar",
+            img:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/61utX8kBDlL._AC_UL320_.jpg",
+            price:"599",
+            category:"Men"
+        },  
+         {
+            id:3,
+            brand:"Puma",
+            img:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/51mcMcp8CSS._AC_UL320_.jpg",
+            price:"2599",
+            category:"Men"
+        }, 
+          {
+            id:4,
+            brand:"Adidas",
+            img:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/61bzb6TpfIS._AC_UL320_.jpg",
+            price:"3599",
+            category:"Men"
+        }, 
+          {
+            id:5,
+            brand:"Nike",
+            img:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/61ZrT5jk5wS._AC_UL320_.jpg",
+            price:"4000",
+            category:"Men"
+        }, 
+          {
+            id:6,
+            brand:"Levi's",
+            img:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71XBhaN0MaL._AC_UL320_.jpg",
+            price:"2999",
+            category:"Men"
+        },
+
+          {
+            id:7,
+            brand:"Peter England",
+            img:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/51A9-tCiXDL._AC_UL320_.jpg",
+            price:"3999",
+            category:"Men"
+        },  
+         {
+            id:8,
+            brand:"Fabindia",
+            img:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71TKm6ecvNL._AC_UL320_.jpg",
+            price:"2399",
+            category:"Men"
+        },
+        {
+            id:9,
+            brand:"Biba",
+            img:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/61nU0G8cbnL._AC_UL320_.jpg",
+            price:"4299",
+            category:"Men"
+        },
+          {
+            id:10,
+            brand:"Raymond",
+            img:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/81uMdMRLB-L._AC_UL320_.jpg",
+            price:"3999",
+            category:"Men"
+        },
+        {
+            id:11,
+            brand:"Ajio",
+            img:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71heefNq2BL._AC_UL320_.jpg",
+            price:"3999",
+            category:"Women"
+        },
+        {
+            id:12,
+            brand:"Adidas",
+            img:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/61pR+tgwGpL._AC_UL320_.jpg",
+            price:"999",
+            category:"Women"
+        },
+        {
+            id:13,
+            brand:"Fabindia",
+            img:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/61Dxa4I8qmS._AC_UL320_.jpg",
+            price:"1599",
+            category:"Women"
+        },
+        {
+            id:14,
+            brand:"puma",
+            img:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/61tFcb0zrQS._AC_UL320_.jpg",
+            price:"1788",
+            category:"Women"
+        },
+        {
+            id:15,
+            brand:"Biba",
+            img:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71kl15eIS0L._AC_UL320_.jpg",
+            price:"2199",
+            category:"Women"
+        },
+        {
+            id:16,
+            brand:"Only",
+            img:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/61WjmCbmHqL._AC_UL320_.jpg",
+            price:"2599",
+            category:"Women"
+        },
+        {
+            id:17,
+            brand:"Aurelia",
+            img:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/618rqgfNigL._AC_UL320_.jpg",
+            price:"2399",
+            category:"Women"
+        },
+        {
+            id:18,
+            brand:"Levi's",
+            img:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/51iIPFL8GWL._AC_UL320_.jpg",
+            price:"1199",
+            category:"Women"
+        },
+        {
+            id:19,
+            brand:"And",
+            img:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/711nw0gay6L._AC_UL320_.jpg",
+            price:"1499",
+            category:"Women"
+        },
+        {
+            id:20,
+            brand:"Allen Solly",
+            img:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71aZsJHzWIL._AC_UL320_.jpg",
+            price:"1699",
+            category:"Women"
+        },
+        {
+            id:21,
+            brand:"little Kangaroos",
+            img:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71mvQs5v9nL._AC_UL320_.jpg",
+            price:"1699",
+            category:"Kids"
+        },
+        {
+            id:22,
+            brand:"Lilliput",
+            img:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71zOgG7LLFL._AC_UL320_.jpg",
+            price:"1999",
+            category:"Kids"
+        },
+        {
+            id:23,
+            brand:"Chicco",
+            img:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/61oN833U1pL._AC_UL320_.jpg",
+            price:"2000",
+            category:"Kids"
+        },
+        {
+            id:24,
+            brand:"Hopscotch",
+            img:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/812dFR4O-HL._AC_UL320_.jpg",
+            price:"2299",
+            category:"Kids"
+        },
+        {
+            id:25,
+            brand:"Pinkcow",
+            img:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71TKm6ecvNL._AC_UL320_.jpg",
+            price:"2699",
+            category:"Kids"
+        },
+        {
+            id:26,
+            brand:"Cucumber",
+            img:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71kIUqpRouL._AC_UL320_.jpg",
+            price:"1599",
+            category:"Kids"
+        },{
+            id:27,
+            brand:"Mumkins",
+            img:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71bSXAuBe4L._AC_UL320_.jpg",
+            price:"2599",
+            category:"Kids"
+        },
+        {
+            id:28,
+            brand:"Sashay",
+            img:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/51MochTc+pL._AC_UL320_.jpg",
+            price:"2899",
+            category:"Kids"
+        },
+        {
+            id:29,
+            brand:"Adidas",
+            img:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/61XTbld58DL._AC_UL320_.jpg",
+            price:"2499",
+            category:"Kids"
+        },
+        {
+            id:30,
+            brand:"Nike",
+            img:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71jkwhpudYL._AC_UL320_.jpg",
+            price:"3299",
+            category:"Kids"
+        }
+ ]
+
+    
+    
+shopdata(cloth)
+
+    function shopdata(data){
+      container.innerHTML=null
+      data.forEach((element)=>{
+        let card=document.createElement("div");
+        let img=document.createElement("img");
+        img.setAttribute("src",element.img);
+        let brand=document.createElement("h2");
+        brand.innerText=element.brand;
+       
+        let price=document.createElement("p")
+        price.innerText="$"+" "+element.price;
+        let category=document.createElement("p")
+        category.innerText=element.category
+        let button=document.createElement("button");
+        button.innerText="Add To Cart"
+        button.addEventListener("click",()=>{
+          let cardata=JSON.parse(localStorage.getItem("cart"))
+          if(cardata==null)cardata=[];
+          let ready=false
+          for(let i=0;i<cardata.length;i++){
+            if(cardata[i].img===element.img){
+              ready=true;
+              break
+
+            }
+          }
+          if(ready==true){
+            alert("Product Already in Cart")
+          }else{
+            cardata.push({...element,quantity:1});
+            console.log(cardata)
+          localStorage.setItem("cart",JSON.stringify(cardata));
+          alert("Product Added To Cart")
+
+          }
+         
+
+
+        })
+        card.append(img,brand,price,category,button);
+        container.append(card)
+
+
+      })
+    }
+
+</script>
+</html>

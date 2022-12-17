@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         body{
+            background-color: azure;
+
+        }
+        #cloth-container{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-auto-rows: 540px;
+            gap: 20px;
+            width: 90%;
+            margin: auto;
+            margin-top: 20px;
+
+        }
+        #cloth-container img{
+            width: 100%;
+            height: 350px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+        #cloth-container>div{
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            border-radius: 15px;
+
+        }
+        #cloth-container>div>button{
+            display: block;
+            margin: auto;
+            width: 180px;
+            height: 30px;
+            border-radius: 50px;
+            background-color: rgb(24, 188, 200);
+            color: white;
+            font-size: 20px;
+            border: none;
+        }
+        #cloth-container>div>h2,#cloth-container>div>p{
+            margin-left: 20px;
+
+        }
+        #filter{
+            display: block;
+            margin: auto;
+            width: 200px;
+            border-radius: 50px;
+            height: 30px;
+            padding: 10;
+        }
+        body{
+            text-align: center;
+            padding: 10px;
+        }
+        .nav>div{
+        background-color: rgb(48, 142, 173);
+        width: 120px;
+        height: 40px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+      }
+      .nav>div a{
+        color: white;
+        text-decoration: none;
+      }
+      .nav{
+        display: flex;
+        width: 80%;
+        justify-content: space-between;
+        margin: auto;
+      }
+      .nav>div{
+        margin-top: 22px;
+      }
+     
+    </style>
+</head>
+<body>
+    <div class="nav">
+     
+        <div> <a href="./home.html">Home</a></div>
+        <h1>Electronics</h1>
+        <div> <a href="./cart.html">Cart</a></div>
+       </div>
+    <select id="filter">
+        <option value="">Filter By Category</option>
+        <option value="Laptop">Laptop</option>
+        <option value="Headphone">Headphone</option>
+        <option value="Watch">Watch</option>
+      </select>
+   <div id="cloth-container"></div>
+
+    
+</body>
+<script>
+    let container=document.getElementById("cloth-container")
+    let filterSelect=document.getElementById("filter")
+
+    
+
+filterSelect.addEventListener("change",function (){
+    let filteredData=elect.filter((element)=>{
+        if(element.catergory==filterSelect.value){
+            return true
+        }else{
+            return false
+        }
+    })
+    shopdata(filteredData)
+})
+ let elect=[ 
+        {
+            id:1,
+            brand:"Dell",
+            price:39999,
+            img:"https://m.media-amazon.com/images/I/61q6x-ll5FL._AC_UY327_FMwebp_QL65_.jpg",
+            rating:4,
+            catergory:"Laptop"
+        },
+        {
+            id:2,
+            brand:"hp",
+            price:35999,
+            img:"https://m.media-amazon.com/images/I/61FTtuGY8iL._AC_UL480_FMwebp_QL65_.jpg",
+            rating:4,
+            catergory:"Laptop"
+        },
+        {
+            id:3,
+            brand:"Asus",
+            price:42990,
+            img:"https://m.media-amazon.com/images/I/71veuBka4NL._AC_UY327_FMwebp_QL65_.jpg",
+            rating:4,
+            catergory:"Laptop"
+        },
+        {
+            id:4,
+            brand:"Apple",
+            price:109999,
+            img:"https://m.media-amazon.com/images/I/71f5Eu5lJSL._AC_UY327_FMwebp_QL65_.jpg",
+            rating:4,
+            catergory:"Laptop"
+        },
+        {
+            id:5,
+            brand:"Samsung",
+            price:45999,
+            img:"https://m.media-amazon.com/images/I/61wqYsqU6AL._AC_UY327_FMwebp_QL65_.jpg",
+            rating:4,
+            catergory:"Laptop"
+        },
+        {
+            id:6,
+            brand:"Infinix",
+            price:32999,      
+            img:"https://m.media-amazon.com/images/I/61Dw5Z8LzJL._AC_UY327_FMwebp_QL65_.jpg",
+            rating:4,
+            catergory:"Laptop"
+        },
+        {
+            id:7,
+            brand:"Msi",
+            price:48999,
+            img:"https://m.media-amazon.com/images/I/61U9L2s5bDL._AC_UY327_FMwebp_QL65_.jpg",
+            rating:4,
+            catergory:"Laptop"
+        },
+        {
+            id:8,
+            brand:"Lenovo",
+            price:48000,
+            img:"https://m.media-amazon.com/images/I/71GF48DOZhL._AC_UY327_FMwebp_QL65_.jpg",
+            rating:4,
+            catergory:"Laptop"
+        },
+        {
+            id:9,
+            brand:"Razer",
+            price:36999,
+            img:"https://m.media-amazon.com/images/I/71w0hh-Q4aL._AC_UY327_FMwebp_QL65_.jpg",
+            rating:4,
+            catergory:"Laptop"
+        },
+        {
+            id:10,
+            brand:"Toshiba",
+            price:36999,
+            img:"https://m.media-amazon.com/images/I/418xqhxMCHL._AC_UY327_FMwebp_QL65_.jpg",
+            rating:4,
+            catergory:"Laptop"
+        },
+        {
+            id:11,
+            brand:"Toshiba",
+            price:3999,
+            img:"https://m.media-amazon.com/images/I/51xxA+6E+xL._AC_UY327_FMwebp_QL65_.jpg",
+            rating:4.5,
+            catergory:"Headphone"
+        },
+        {
+            id:12,
+            brand:"Dell",
+            price:2599,
+            img:"https://m.media-amazon.com/images/I/418xqhxMCHL._AC_UY327_FMwebp_QL65_.jpg",
+            rating:4.5,
+            catergory:"Headphone"
+        },
+        {
+            id:13,
+            brand:"hp",
+            price:2899,
+            img:"https://m.media-amazon.com/images/I/61kWB+uzR2L._AC_UY327_FMwebp_QL65_.jpg",
+            rating:4.5,
+            catergory:"Headphone"
+        },
+        {
+            id:14,
+            brand:"Boat",
+            price:2366,
+            img:"https://m.media-amazon.com/images/I/71HbypECPYL._AC_UY327_FMwebp_QL65_.jpg",
+            rating:4.5,
+            catergory:"Headphone"
+        },
+        {
+            id:15,
+            brand:"Zebronics",
+            price:4200,
+            img:"https://m.media-amazon.com/images/I/418xqhxMCHL._AC_UY327_FMwebp_QL65_.jpg",
+            rating:4.5,
+            catergory:"Headphone"
+        },
+        {
+            id:16,
+            brand:" oneplus",
+            price:2300,
+            img:"https://m.media-amazon.com/images/I/71fvr5CC+aL._AC_UY327_FMwebp_QL65_.jpg",
+            rating:4.5,
+            catergory:"Headphone"
+        },
+        {
+            id:17,
+            brand:"JBL",
+            price:1899,
+            img:"https://m.media-amazon.com/images/I/61Pe1nFYrFL._AC_UY327_FMwebp_QL65_.jpg",
+            rating:4.5,
+            catergory:"Headphone"
+        },
+        {
+            id:18,
+            brand:"Noise",
+            price:5600,
+            img:"https://m.media-amazon.com/images/I/61iK8fdAa+S._AC_UY327_FMwebp_QL65_.jpg",
+            rating:4.5,
+            catergory:"Headphone"
+        },
+        {
+            id:19,
+            brand:"Realme",
+            price:4500,
+            img:"https://m.media-amazon.com/images/I/51Y7SIK68KL._AC_UY327_FMwebp_QL65_.jpg",
+            rating:4.5,
+            catergory:"Headphone"
+        },
+        {
+            id:20,
+            brand:"Boult",
+            price:1599,
+            img:"https://m.media-amazon.com/images/I/817WP7J8ZOL._AC_UY327_FMwebp_QL65_.jpg",
+            rating:4.5,
+            catergory:"Headphone"
+        },
+        {
+            id:21,
+            brand:"Toshiba",
+            price:2599,
+            img:"https://m.media-amazon.com/images/I/71MP6Tse68L._AC_UY327_FMwebp_QL65_.jpg",
+            rating:4.5,
+            catergory:"Watch"
+        },
+        {
+            id:22,
+            brand:"Boat",
+            price:1718,
+            img:"https://m.media-amazon.com/images/I/61IMRs+o0iL._AC_UY327_FMwebp_QL65_.jpg",
+            rating:4.5,
+            catergory:"Watch"
+        },
+        {
+            id:23,
+            brand:"Realme",
+            price:2999,
+            img:"https://m.media-amazon.com/images/I/614SBqXrTES._AC_UY327_FMwebp_QL65_.jpg",
+            rating:4.5,
+            catergory:"Watch"
+        },
+        {
+            id:24,
+            brand:"Noise",
+            price:2899,
+            img:"https://m.media-amazon.com/images/I/71+FrNJ61dL._AC_UY327_FMwebp_QL65_.jpg",
+            rating:4.5,
+            catergory:"Watch"
+        },
+        {
+            id:25,
+            brand:"Apple",
+            price:23000,
+            img:"https://m.media-amazon.com/images/I/71+FrNJ61dL._AC_UY327_FMwebp_QL65_.jpg",
+            rating:4.5,
+            catergory:"Watch"
+        },
+        {
+            id:26,
+            brand:"Casio",
+            price:1999,
+            img:"https://m.media-amazon.com/images/I/61mRKaLJg2L._AC_UL480_FMwebp_QL65_.jpg",
+            rating:4.5,
+            catergory:"Watch"
+        },
+        {
+            id:27,
+            brand:"Patek Philippe",
+            price:4599,
+            img:"https://m.media-amazon.com/images/I/61y2VVWcGBL._AC_UY327_FMwebp_QL65_.jpg",
+            rating:4.5,
+            catergory:"Watch"
+        },
+        {
+            id:28,
+            brand:"Fitbit",
+            price:1499,
+            img:"https://m.media-amazon.com/images/I/712VGfMEouL._AC_UY327_FMwebp_QL65_.jpg",
+            rating:4.5,
+            catergory:"Watch"
+        },
+        {
+            id:29,
+            brand:"Fossil",
+            price:1299,
+            img:"https://m.media-amazon.com/images/I/618mFEP9mTL._AC_UY327_FMwebp_QL65_.jpg",
+            rating:4.5,
+            catergory:"Watch"
+        },
+        {
+            id:30,
+            brand:"Amazfit",
+            price:2199,
+            img:"https://m.media-amazon.com/images/I/61kyPt4PQFL._AC_UY327_FMwebp_QL65_.jpg",
+            rating:4.5,
+            catergory:"Watch"
+        },
+       
+
+
+   ]
+
+    
+    
+shopdata(elect)
+
+    function shopdata(data){
+      container.innerHTML=null
+      data.forEach((element)=>{
+        let card=document.createElement("div");
+        let img=document.createElement("img");
+        img.setAttribute("src",element.img);
+        let brand=document.createElement("h2");
+        brand.innerText=element.brand;
+       
+        let price=document.createElement("p")
+        price.innerText="$"+" "+element.price;
+        let catergory=document.createElement("p")
+        catergory.innerText=element.catergory
+        let button=document.createElement("button");
+        button.innerText="Add To Cart"
+        button.addEventListener("click",()=>{
+          let cardata=JSON.parse(localStorage.getItem("cart"))
+          if(cardata==null)cardata=[];
+          let ready=false
+          for(let i=0;i<cardata.length;i++){
+            if(cardata[i].img===element.img){
+              ready=true;
+              break
+
+            }
+          }
+          if(ready==true){
+            alert("Product Already in Cart")
+          }else{
+            cardata.push({...element,quantity:1});
+            console.log(cardata)
+          localStorage.setItem("cart",JSON.stringify(cardata));
+          alert("Product Added To Cart")
+
+          }
+         
+
+
+        })
+        card.append(img,brand,price,catergory,button);
+        container.append(card)
+
+
+      })
+    }
+
+</script>
+</html>
