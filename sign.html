@@ -139,17 +139,11 @@ background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+
     let namefield=document.getElementById("namefield");
     let title=document.getElementById("title");
     signin.addEventListener("click",()=>{
-        namefield.style.maxHeight="0";
-        title.innerText="Sign In"
-        signup.classList.add("disable")
-        signin.classList.remove("disable")
+       
 
     })
     signup.addEventListener("click",()=>{
-        namefield.style.maxHeight="60px";
-        title.innerHTML="Sign Up"
-        signup.classList.remove("disable")
-        signin.classList.add("disable")
+       
 
     })
    
@@ -162,6 +156,7 @@ background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+
                 newuser=false
             }
         }
+        if(signup.className !== "disable"){
         if(newuser){
             user.push({
                 name:ename,
@@ -176,7 +171,11 @@ background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+
         }else{
             alert("You have already account at Freedom Shoppers")
         }
-
+    }
+    namefield.style.maxHeight="60px";
+        title.innerHTML="Sign Up"
+        signup.classList.remove("disable")
+        signin.classList.add("disable")
     })
     signin.addEventListener("click",()=>{
         let user=JSON.parse(localStorage.getItem("user"))||[]
@@ -184,18 +183,25 @@ background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+
       let pass=document.getElementById("pass").value
       let newuser=false
       for(let i=0;i<user.length;i++){
-        if(user[i].email==email){
+        if(user[i].email==email && email != ''){
           if(user[i].password==pass){
             newuser=true
           }
         }
       }
+      if(signin.className !== "disable"){
       if(newuser){
         alert("Sign in successful")
         window.location.pathname="home.html"
       }else{
         alert("Wrong Credentials")
       }
+    }
+
+    namefield.style.maxHeight="0";
+        title.innerText="Sign In"
+        signup.classList.add("disable")
+        signin.classList.remove("disable")
     })
 
 
